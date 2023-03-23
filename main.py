@@ -23,15 +23,15 @@ def encode(password):
             encoded_password += "3"
 
     return encoded_password
-def decode(secret):
-    ta_da = ''
-    for i in secret:
+def decode(classified):
+    password = ''
+    for i in classified:
         receiver = int(i)
         receiver -= 3
         if receiver < 0:
             receiver += 10
-        ta_da += str(receiver)
-    print(f"The encoded password is {secret}, and the original password is {ta_da}")
+        password += str(receiver)
+    print(f"The encoded password is {classified}, and the original password is {password}")
     print("")
 
 
