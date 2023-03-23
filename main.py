@@ -23,6 +23,41 @@ def encode(password):
             encoded_password += "3"
 
     return encoded_password
+def decode(secret):
+    ta_da = ''
+    for i in secret:
+        receiver = int(i)
+        receiver -= 3
+        if receiver < 0:
+            receiver += 10
+        ta_da += str(receiver)
+    print(f"The encoded password is {secret}, and the original password is {ta_da}")
+    print("")
+
+
+if __name__ == "__main__":
+    stop_menu = False
+    user_password = 0
+    user_encoded_password = ""
+
+    while stop_menu is False:
+        print("Menu")
+        print("-------------")
+        print("1. Encode \n2. Decode \n3. Quit\n")
+        user_option = int(input("Please enter an option: "))
+
+        if user_choice == 1: # encodes user password
+            user_password = str(input("Please enter your password to encode: "))
+            user_encoded_password = encode(user_password)
+            print("Your password has been encoded and stored!")
+
+        elif user_choice == 2:
+            decode(user_encoded_password)
+        elif user_choice == 3:
+            stop_menu = True
+            break
+        print()
+
 
 
 
